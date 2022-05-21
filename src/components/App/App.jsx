@@ -1,13 +1,16 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
 import './App.scss';
 
 function App() {
     return (
-        <div>
-            <h1>Azeno</h1>
-            <Button variant="primary">Button #1</Button>
-        </div>
+        <BrowserRouter>
+            <div>
+                <Route path="/" element={<Link to="/Profile">Profile</Link>} />
+                <Route path="/profile" element={<Link to="/Profile">Home</Link>} />
+            </div>
+        </BrowserRouter>
     );
 }
 
