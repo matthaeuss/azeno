@@ -1,5 +1,5 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin') // common JS imports from NODE.JS
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // common JS imports from NODE.JS
 
 // export w node.js, czyli common js
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
     },
     // webpack 5 comes with devServer which loads in development mode
     devServer: {
-        port: 3000,
+        port: 3001
         // watchContentBase: true
     },
     // Rules of how webpack will take our files, complie & bundle them for the browser
@@ -29,5 +29,8 @@ module.exports = {
             }
         ]
     },
-    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
-}
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+    },
+    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })]
+};
