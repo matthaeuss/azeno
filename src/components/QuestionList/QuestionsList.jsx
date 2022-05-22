@@ -12,10 +12,16 @@ function QuestionsList() {
     }, []);
 
     useEffect(() => {
-        if (questions.length) {
-            setQuestion(questions[0]);
-        }
+        updateNextQuestion();
     }, [questions]);
+
+    function updateNextQuestion() {
+        if (questions.length) {
+            const id = Math.round(Math.random() * (questions.length - 1));
+            const q = questions[id];
+            setQuestion(q);
+        }
+    }
 
     async function getDeck(id) {
         const url = 'http://localhost:3010';
@@ -30,7 +36,11 @@ function QuestionsList() {
             {!question ? (
                 <h2>Loading...</h2>
             ) : (
-                <Question question={question.question} answer={question.answer} />
+                <Question
+                    updateNextQuestion={updateNextQuestion}
+                    question={question.question}
+                    answer={question.answer}
+                />
             )}
         </div>
     );
