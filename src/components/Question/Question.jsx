@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 
 function Question() {
-    const [question] = useState('Czy w JS wszystko jet obiektem');
+    const [question] = useState('Czy w JS wszystko jest obiektem?');
     const [answer] = useState(
         'Z technicznego punktu widzenia: nie. Typy proste są opakowywane obiektami.'
     );
 
-    const [toggle, setToggle] = useState();
+    const [toggle, setToggle] = useState(false);
 
     function handleAnswer() {
         setToggle(true);
